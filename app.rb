@@ -9,7 +9,7 @@ BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get("/") do
   "
-  <h1>Welcome to your Sinatra App!</h1>
+  <h1>Welcome to your Sinatra Appddd!</h1>
   <p>Define some routes in app.rb</p>
   "
 end
@@ -17,6 +17,7 @@ end
 get("/rock") do
   moves = ["rock","paper","scissors"]
   @comp_move = moves.sample
+  
   if @comp_move == "rock"
     @outcome ="tied"
   elsif @comp_move=="paper"
