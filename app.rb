@@ -8,10 +8,7 @@ BetterErrors.application_root = __dir__
 BetterErrors::Middleware.allow_ip!('0.0.0.0/0.0.0.0')
 
 get("/") do
-  "
-  <h1>Welcome to your Sinatra Appddd!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+  erb(:homepage)
 end
 
 get("/rock") do
@@ -26,5 +23,35 @@ get("/rock") do
     @outcome="won"
   end
   
-  erb(:zebra)
+  erb(:rock)
+end
+
+get("/paper") do
+  moves = ["rock","paper","scissors"]
+  @comp_move = moves.sample
+  
+  if @comp_move == "rock"
+    @outcome ="won"
+  elsif @comp_move=="paper"
+    @outcome="tied"
+  else
+    @outcome="lost"
+  end
+  
+  erb(:paper)
+end
+
+get("/scissors") do
+  moves = ["rock","paper","scissors"]
+  @comp_move = moves.sample
+  
+  if @comp_move == "rock"
+    @outcome ="lost"
+  elsif @comp_move=="paper"
+    @outcome="won"
+  else
+    @outcome="tied"
+  end
+  
+  erb(:scissors)
 end
